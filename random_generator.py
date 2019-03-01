@@ -33,10 +33,10 @@ class LCG_Generator:
 def rand():
     gen = LCG_Generator(2147483647,123,789,456)
     return gen
-gen = rand()
+'''gen = rand()
 for i in gen:
     print(i)
-'''
+
 def generate_random_lcg(m,a,c,zi):
     list1=[]
     ui = []
