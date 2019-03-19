@@ -24,9 +24,26 @@ import sys as s
 import reader as r
 import plotter as p
 
+def pdf(lamda,a1,a2,step):
+    steps = lamda*((a2-a1)/(2*step))
+    summing_part = 0.0
+    i = 1
+    while(i<step):
+        summing_part+=np.exp(-lamda*(a1+i*steps))
+        i+=1
+    summing_part = steps*(2*summing_part+np.exp(-lamda*a1)+np.exp(-lamda*a1))
+    #print(summing_part)
+    return summing_part
+def integrate(beta,l_lim,u_lim,step):
+    return pdf(1/beta,l_lim,u_lim,step)
+    
+def exponential_parameter_estimator(data):
+    return np.mean(data)
 
 
-if __name__ =='__main__':
+
+
+'''if __name__ =='__main__':
     try:
         assert(len(s.argv)>=2)
     except:
@@ -36,3 +53,4 @@ if __name__ =='__main__':
     p.plot_it(x,len(x))
 
 
+'''

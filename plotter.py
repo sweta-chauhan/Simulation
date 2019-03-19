@@ -35,14 +35,14 @@ def calc_frequency_table(ls,interval_size):
 
 def histogram(x,y,xlabel,ylabel):
     plt.plot(x,y,color='red')
-    plt.bar(x,y,width=0.1)
+    plt.bar(x,y,width=0.5)
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     plt.show()
     return True
 
 
-'''
+
 
 if __name__ =='__main__':
     try:
@@ -50,6 +50,7 @@ if __name__ =='__main__':
     except:
         print("Please insert file name")
         print("May be specified is reside in your system")
-    x=r.read_file(s.argv[1])
+    x=r.read_csv(s.argv[1])
     plot_it(x,len(x))
-'''
+    #x,y=calc_frequency_table(x,11)
+    #histogram(x,y,"x_axis","y_axi")
