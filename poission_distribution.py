@@ -8,7 +8,7 @@ For generating poission_distribution. I am going to use acceptance-rejection tec
 '''
 import numpy as np
 import random_generator as rd
-
+import plotter as pt
 class Poission_Random_Variate_Generator:
     def __init__(self,size,alpha,r_generator):
         self.size=size
@@ -38,3 +38,9 @@ def poission_rand_gen(size,alpha):
     return list(l)
 
 #print(poission_rand_gen(10,4))
+'''
+ls=poission_rand_gen(500,10)
+pt.plot_it(ls,len(ls))
+x,y=pt.calc_frequency_table(ls,10)
+pt.histogram(x,y,"x","y")
+'''

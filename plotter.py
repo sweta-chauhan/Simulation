@@ -4,32 +4,33 @@ import reader as r
 
 def plot_it(x,size):
     y = x[1:]+[x[-1]]
-    plt.scatter(x,y,marker='o')
+    plt.scatter(x,y,marker='p')
     plt.show()
     return True
 
 def calc_frequency_table(ls,interval_size):
     max1,min1 = max(ls),min(ls)
+    prev1 = min1
     x = []
     step= (max1-min1)/interval_size
+    min1+=step
     while(min1<=max1):
         x.append(min1)
         min1+=step
-    if(min1<max1):
-        x.append(min1+1)
+    #print(min1>x[-1],max1>x[-1],max1,min1,x[-1])
+    if(max1>x[-1]):
+        x.append(max1+1)
     len1=len(x)
     count = 0
     y = []
-    for i in range(1,len1):
+    for i in range(len1):
         for j in ls:
-            if(x[i-1]<=j and j<x[i]):
+            if(prev1<=j and j<x[i]):
                 count+=1
+        prev1=x[i]
         y.append(count)
         count =0
-    for j in ls:
-        if (x[-1]<=j and j<x[-1]+1):
-            count+=1
-    y.append(count)
+    print(len(y),len(x),len(ls))
     return x,y
 
 
@@ -52,5 +53,5 @@ if __name__ =='__main__':
         print("May be specified is reside in your system")
     x=r.read_csv(s.argv[1])
     plot_it(x,len(x))
-    #x,y=calc_frequency_table(x,11)
-    #histogram(x,y,"x_axis","y_axi")
+    x,y=calc_frequency_table(x,int(s.argv[2]))
+    histogram(x,y,"x_axis","y_axi")

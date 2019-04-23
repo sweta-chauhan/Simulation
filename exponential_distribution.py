@@ -21,7 +21,7 @@ F(x) = P(X>=x)
 
 import numpy as np
 import random_generator as rd
-
+import plotter as pt
 #Class for exponential random variate generator
 
 class Exponential_Random_Variate_Generator:
@@ -64,7 +64,13 @@ def expon_rand_gen(size,lamda):
 
 #for i in l:
 #    print(i)
-#print(expon_rand_gen(22,2))
+'''
+ls=expon_rand_gen(500,2)
+print(expon_rand_gen(500,2))
+pt.plot_it(ls,500)
+x,y=pt.calc_frequency_table(ls,10)
+pt.histogram(x,y,"x","y")
+'''
 '''
 import sys as s
 import reader as r

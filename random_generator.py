@@ -1,5 +1,7 @@
 '''
+
 It's pseudo random number generator.
+
 '''
 import numpy as np
 import sys as s
